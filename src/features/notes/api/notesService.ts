@@ -14,18 +14,26 @@ class NotesService {
   }
 
   static createNote = async (note: CreateNoteDTO) : Promise<Note> => {
-    const response = await fetch(`${NEST_API_URL}/notes`, {
-      method: 'POST',
-      body: JSON.stringify(note),
-    })
+    const response = await fetch(`${NEST_API_URL}/notes`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(note),
+      }
+    );
     return response.json()
   }
 
   static updateNote = async (id: string, note: UpdateNoteDTO) : Promise<Note> => {
     const response = await fetch(`${NEST_API_URL}/notes/${id}`, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(note),
-    })
+    });
     return response.json()
   }
 
