@@ -1,11 +1,11 @@
-import type { Note as NoteType } from "../types"
+import type { Note } from "../types"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 interface NoteProps {
-    note: NoteType
+    note: Note
 }
 
-const Note: React.FC<NoteProps> = ({ note }) => {
+const NoteCard: React.FC<NoteProps> = ({ note }) => {
     const { title, content } = note
     return (
         <Card>
@@ -19,4 +19,4 @@ const Note: React.FC<NoteProps> = ({ note }) => {
     )
 }
 
-export default Note
+export default NoteCard
