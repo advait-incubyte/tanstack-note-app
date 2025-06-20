@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query"
 import { useParams } from "@tanstack/react-router"
 import NotesService from "../api/notesService"
 import { useState } from "react"
-import AddNote from "./addNote"
-import NoteDetails from "./noteDetails"
+import AddNote from "./AddNote"
+import NoteDetails from "./NoteDetails"
 
 const SingleNoteView: React.FC = () => {
     const { noteId } = useParams({ from: '/notes/$noteId' })

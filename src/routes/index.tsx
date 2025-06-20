@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import NotesDashboard from '@/features/notes/components/notesDashboard'
+import NotesDashboard from '@/features/notes/components/NotesDashboard'
 
 export const Route = createFileRoute('/')({ component: Index })
 

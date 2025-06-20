@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import NotesService from "../api/notesService";
-import Note from "./noteCard";
+import NoteCard from "./noteCard";
 import { Link } from "@tanstack/react-router";
 
 const Loader: React.FC = () => {
@@ -32,7 +32,7 @@ const NoteList: React.FC = () => {
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
       {notes?.map((note) => (
         <Link to="/notes/$noteId" params={{ noteId: note.id }} key={note.id}>
-          <Note note={note} />
+          <NoteCard note={note} />
         </Link>
       ))}
     </ul>

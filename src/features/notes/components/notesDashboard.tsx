@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import NoteList from "./noteList"
+import NoteList from "./NoteList"
 import NotesService from "../api/notesService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
