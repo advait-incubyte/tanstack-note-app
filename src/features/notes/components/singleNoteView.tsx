@@ -6,7 +6,7 @@ import AddNote from "./addNote"
 import NoteDetails from "./noteDetails"
 
 const SingleNoteView: React.FC = () => {
-    const { noteId } = useParams({ from: '/$noteId' })
+    const { noteId } = useParams({ from: '/notes/$noteId' })
     const [isBeingEdited, setIsBeingEdited] = useState(false);
 
     const { data: note } = useQuery({
