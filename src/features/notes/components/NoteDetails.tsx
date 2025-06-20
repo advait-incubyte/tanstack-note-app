@@ -1,5 +1,6 @@
 import type { Note } from "../types"
 import { Button } from "@/components/ui/button"
+import MarkdownViewer from "@/components/markdown/MarkdownViewer"
 
 interface NoteDetailsProps {
     note: Note,
@@ -18,7 +19,7 @@ const NoteDetails: React.FC<NoteDetailsProps> = ({ note, onClickEdit }) => {
                 Edit
             </Button>
             <h1 className="text-4xl font-bold mb-4 pr-12">{note.title}</h1>
-            <div className="text-gray-600 whitespace-pre-line">{note.content}</div>
+            <MarkdownViewer className="text-gray-600 whitespace-pre-line" markdown={note.content} />
         </article>
     )
 }
