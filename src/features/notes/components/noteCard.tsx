@@ -8,7 +8,7 @@ interface NoteProps {
 const NoteCard: React.FC<NoteProps> = ({ note }) => {
     const { title, content } = note
     return (
-        <Card>
+        <Card className="hover:shadow-lg transition-shadow duration-200">
             <CardHeader>
                 <CardTitle className="text-xl">{title}</CardTitle>
             </CardHeader>
