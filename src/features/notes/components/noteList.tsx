@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import NotesService from "../api/notesService";
-import NoteCard from "./noteCard";
+import NoteCard from "./NoteCard";
 import { Link } from "@tanstack/react-router";
 
 const Loader: React.FC = () => {
