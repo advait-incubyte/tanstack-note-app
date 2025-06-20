@@ -1,9 +1,26 @@
+import { useQuery } from "@tanstack/react-query"
+import { useParams } from "@tanstack/react-router"
+import NotesService from "../api/notesService"
+import { useState } from "react"
+import AddNote from "./addNote"
+import NoteDetails from "./noteDetails"
+
 const SingleNoteView: React.FC = () => {
-    return (
-        <div>
-            <h1>Note Details</h1>
-        </div>
+    const { noteId } = useParams({ from: '/$noteId' })
+    const [isBeingEdited, setIsBeingEdited] = useState(false);
+
+    const { data: note } = useQuery({
+        queryKey: ['notes', noteId],
+        queryFn: () => NotesService.getNote(noteId)
+    })
+
+    if (!note) return <div>Note not found</div>
+    
+    return isBeingEdited ? (
+        <AddNote note={note} />
+    ) : (
+        <NoteDetails note={note} />
     )
-}
+}   
 
 export default SingleNoteView
