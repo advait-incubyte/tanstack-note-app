@@ -17,9 +17,9 @@ const SingleNoteView: React.FC = () => {
     if (!note) return <div>Note not found</div>
     
     return isBeingEdited ? (
-        <AddNote note={note} setIsBeingEdited={setIsBeingEdited} />
+        <AddNote note={note} onSave={() => setIsBeingEdited(false)} />
     ) : (
-        <NoteDetails note={note} setIsBeingEdited={setIsBeingEdited} />
+        <NoteDetails note={note} onEdit={() => setIsBeingEdited(true)} />
     )
 }   
 

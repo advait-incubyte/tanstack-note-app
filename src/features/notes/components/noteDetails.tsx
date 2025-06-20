@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button"
 
 interface NoteDetailsProps {
     note: Note,
-    setIsBeingEdited: (isBeingEdited: boolean) => void
+    onClickEdit: () => void
 }
 
-const NoteDetails: React.FC<NoteDetailsProps> = ({ note, setIsBeingEdited }) => {
+const NoteDetails: React.FC<NoteDetailsProps> = ({ note, onClickEdit }) => {
     return (
         <article className="prose prose-lg max-w-4xl mx-auto mt-12 relative">
             <Button 
                 variant="outline" 
                 size="sm"
                 className="absolute right-0 top-0"
-                onClick={() => setIsBeingEdited(true)}
+                onClick={onClickEdit}
             >
                 Edit
             </Button>

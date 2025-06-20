@@ -1,10 +1,11 @@
 import type { Note } from "../types"
 
 interface AddNoteProps {
-    note: Note
+    note: Note,
+    onSave: () => void
 }
 
-const AddNote: React.FC<AddNoteProps> = ({ note }) => {
+const AddNote: React.FC<AddNoteProps> = ({ note, onSave }) => {
     return (
         <div>
             <h1>Add Note</h1>
