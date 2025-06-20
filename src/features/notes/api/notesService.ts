@@ -1,10 +1,6 @@
-const NEST_API_URL = import.meta.env.NEST_API_URL || 'http://localhost:3000'
+import type { Note, CreateNoteDTO, UpdateNoteDTO } from '../types'
 
-export interface Note {
-  id: string
-  title: string
-  content: string
-}
+const NEST_API_URL = import.meta.env.NEST_API_URL || 'http://localhost:3000'
 
 class NotesService {
   static getNotes = async () : Promise<Note[]> => {
@@ -17,7 +13,7 @@ class NotesService {
     return response.json()
   }
 
-  static createNote = async (note: Omit<Note, 'id'>) : Promise<Note> => {
+  static createNote = async (note: CreateNoteDTO) : Promise<Note> => {
     const response = await fetch(`${NEST_API_URL}/notes`, {
       method: 'POST',
       body: JSON.stringify(note),
@@ -25,8 +21,8 @@ class NotesService {
     return response.json()
   }
 
-  static updateNote = async (note: Note) : Promise<Note> => {
-    const response = await fetch(`${NEST_API_URL}/notes/${note.id}`, {
+  static updateNote = async (id: string, note: UpdateNoteDTO) : Promise<Note> => {
+    const response = await fetch(`${NEST_API_URL}/notes/${id}`, {
       method: 'PUT',
       body: JSON.stringify(note),
     })
