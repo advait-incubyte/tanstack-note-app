@@ -19,7 +19,7 @@ const SingleNoteView: React.FC = () => {
     return isBeingEdited ? (
         <AddNote note={note} onSave={() => setIsBeingEdited(false)} />
     ) : (
-        <NoteDetails note={note} onEdit={() => setIsBeingEdited(true)} />
+        <NoteDetails note={note} onClickEdit={() => setIsBeingEdited(true)} />
     )
 }   
 
