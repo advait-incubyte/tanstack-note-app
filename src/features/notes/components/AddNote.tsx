@@ -6,6 +6,7 @@ import NotesService from "../api/notesService";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import MarkdownEditor from "@/components/markdown/MarkdownEditor";
+import { useNavigate } from "@tanstack/react-router";
 
 interface AddNoteProps {
     note: Note | undefined,
@@ -17,11 +18,14 @@ const AddNote: React.FC<AddNoteProps> = ({ note, onSave }) => {
     const [content, setContent] = useState(note?.content || "");
 
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
+    
     const createNoteMutation = useMutation({
         mutationFn: (payload: CreateNoteDTO | UpdateNoteDTO) => NotesService.createNote(payload),
-        onSuccess: () => {
+        onSuccess: (createdNote: Note) => {
             queryClient.invalidateQueries({ queryKey: ['notes'] })
             onSave()
+            navigate({ to: "/notes/$noteId", params: { noteId: createdNote.id } })
         }
     });
 
@@ -29,7 +33,7 @@ const AddNote: React.FC<AddNoteProps> = ({ note, onSave }) => {
         mutationFn: (payload: UpdateNoteDTO) => NotesService.updateNote(note!.id, payload),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['notes'] })
-            onSave()
+            onSave() 
         }
     });
 
