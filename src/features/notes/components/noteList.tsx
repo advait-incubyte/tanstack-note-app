@@ -31,7 +31,7 @@ const NoteList: React.FC = () => {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
       {notes?.map((note) => (
-        <Link to="/$noteId" params={{ noteId: note.id }} key={note.id}>
+        <Link to="/notes/$noteId" params={{ noteId: note.id }} key={note.id}>
           <Note note={note} />
         </Link>
       ))}
