@@ -11,7 +11,7 @@ const NotesDashboard: React.FC = () => {
 
   return (
       <div className="flex flex-col items-center py-12 px-4">
-          <div className="flex justify-end w-full">
+          <div className="flex justify-end w-full mb-4">
               <Button onClick={navigateToNewNote}>
                   Create Note
               </Button>
